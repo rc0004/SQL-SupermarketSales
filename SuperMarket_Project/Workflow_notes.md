@@ -10,7 +10,7 @@
 
 ## 5 Wrote direct SQL queries instead of Excel for practice. Due to this dataset being relatively small (1000 rows) it would work very well in Excel and doesn't require SQL. 
 
-## Biggest issue came when trying to create separate columns of a SUM of gross_income for each product category based upon Gender. I chased UNION and JOIN approaches, tried to write nested subqueries, but no matter how I formatted it there were always issues. So I stepped back to look at what I was trying to do, and kept revising the question I was typing in Google. Eventually I came across conditional aggregations, which is what I was essentially trying to do - come up with separate sums for things (or aggregates) based upon a condition, and naming them as different columns using the "AS" keyword. Below is the eventual solution I came to, based upon this website: https://www.codecademy.com/courses/sql-table-transformation/lessons/conditional-aggregates/exercises/sum-case-when
+ Biggest issue came when trying to create separate columns of a SUM of gross_income for each product category based upon Gender. I chased UNION and JOIN approaches, tried to write nested subqueries, but no matter how I formatted it there were always issues. So I stepped back to look at what I was trying to do, and kept revising the question I was typing in Google. Eventually I came across conditional aggregations, which is what I was essentially trying to do - come up with separate sums for things (or aggregates) based upon a condition, and naming them as different columns using the "AS" keyword. Below is the eventual solution I came to, based upon this website: https://www.codecademy.com/courses/sql-table-transformation/lessons/conditional-aggregates/exercises/sum-case-when
 <br>
 
 ``` SQL
