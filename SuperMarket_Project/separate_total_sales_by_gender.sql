@@ -12,12 +12,13 @@
 -- select Gender to show which value is which
 -- The resulting table is in "long" format, with repeated values in the Product_line column, but
 -- without separate columns for each gender
+-- Long format works well for PowerBI visuals so this is the preferred approach!
 USE SupermarketAnalysis
 GO
 
-CREATE OR ALTER VIEW vw_cash_payment_by_gender_long
+CREATE OR ALTER VIEW vw_sales_by_gender
 AS SELECT Product_line, SUM(gross_income) AS ProductLine_profit, Gender
-FROM vw_cash_payment 
+FROM vw_all_sales 
 GROUP BY Product_line, Gender
 GO
 
@@ -27,12 +28,12 @@ GO
 -- This creates three columns, a total gross income for each product line, a total gross income for males, and total gross income for females.
 -- This snippit is only for demonstration and absolutely is not recommended for analysis or visualisation purposes.
 
-CREATE OR ALTER VIEW vw_cash_payment_by_gender_wide
-AS 
-SELECT Product_line, SUM(gross_income) AS gross_total,
-SUM(case when Gender = 'Male' then gross_income ELSE 0 END) as male_income,
-SUM (case when Gender = 'Female' then gross_income ELSE 0 END) as female_income
-FROM vw_cash_payment
-GROUP BY Product_line
-ORDER BY gross_total DESC
-GO
+--CREATE OR ALTER VIEW vw_cash_payment_by_gender_wide
+--AS 
+--SELECT Product_line, SUM(gross_income) AS gross_total,
+--SUM(case when Gender = 'Male' then gross_income ELSE 0 END) as male_income,
+--SUM (case when Gender = 'Female' then gross_income ELSE 0 END) as female_income
+--FROM vw_cash_payment
+--GROUP BY Product_line
+--ORDER BY gross_total DESC
+--GO
